@@ -2,6 +2,7 @@
 using System.IO;
 using BenchmarkDotNet.Attributes;
 using BenchmarkDotNet.Attributes.Jobs;
+using Library;
 
 namespace PathCombineBenchmark
 {
@@ -10,25 +11,25 @@ namespace PathCombineBenchmark
         [Benchmark()]
         public string CombineWith2Parameters()
         {
-            return Path.Combine("C:", "Temp");
+            return Logic.PathCombine("C:", "Temp");
         }
 
         [Benchmark()]
         public string CombineWith3Parameters()
         {
-            return Path.Combine("C:", "Temp", "Folder");
+            return Logic.PathCombine("C:", "Temp", "Folder");
         }
 
         [Benchmark()]
         public string CombineWith4Parameters()
         {
-            return Path.Combine("C:", "Temp", "Folder", "Subfolder");
+            return Logic.PathCombine("C:", "Temp", "Folder", "Subfolder");
         }
 
         [Benchmark()]
         public string CombineWith5Parameters()
         {
-            return Path.Combine("C:", "Temp", "Folder", "Subfolder", "Subsubfolder");
+            return Logic.PathCombine("C:", "Temp", "Folder", "Subfolder", "Subsubfolder");
         }
     }
 }
